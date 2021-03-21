@@ -626,7 +626,7 @@ function fetchWater4() {
 		document.querySelector('.water-level-4').textContent = `Current Water Level: ${data.value.timeSeries[1].values[0].value[0].value} Feet`;
 		document.querySelector('.water-discharge-4').textContent = `Current Water Level: ${data.value.timeSeries[0].values[0].value[0].value} Cubic Feet Per Second`;
 
-		if (data.value.timeSeries[1].values[0].value[0].value >= 1.5) {
+		if (data.value.timeSeries[1].values[0].value[0].value >= 0 ) {
 			document.querySelector('.height-ok-4').textContent = "Water Levels Are Great!";
 			document.querySelector('.height-ok-4').style.color = "green";
 			document.querySelector('.height-ok-4').classList = ("animate__animated animate__pulse animate__infinite");
