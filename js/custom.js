@@ -703,17 +703,17 @@ function fetchWater6() {
 fetchWater6();
 
 //Google Maps//
-
+/*
 function initMap() {
 	const takeOut = { lat: 40.3926249, lng: -77.8340099 };
 	const putIn = { lat: 40.364615, lng: -77.811638 };
-	const map = new google.maps.Map(document.getElementById("map"), {
+	const map11 = new google.maps.Map(document.getElementById("map"), {
 	  zoom: 10,
 	  center: putIn,
 	});
 	new google.maps.Marker({
 	  position: takeOut,
-	  map,
+	  map11,
 	  title: "Take Out",
 	  icon: {
 		url: "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
@@ -721,13 +721,13 @@ function initMap() {
 	});
 	new google.maps.Marker({
 		position: putIn,
-		map,
+		map11,
 		title: "Put In",
 		icon: {
 			url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
 		  }
 	  });
-	  //
+	  //map2
 	  
 	  const takeOut2 = { lat: 40.3926249, lng: -77.834099 };
 	  const putIn2 = { lat: 40.364615, lng: -77.811638 };
@@ -841,8 +841,37 @@ function initMap() {
 				});
 				
 }
+*/
 
+	function initMap1(putIn, takeOut, id) {
+		const map = new google.maps.Map(document.getElementById(id), {
+		  zoom: 10,
+		  center: putIn,
+		});
+		new google.maps.Marker({
+		  position: takeOut,
+		  map,
+		  title: "Take Out",
+		  icon: {
+			url: "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
+		  }
+		});
+		new google.maps.Marker({
+			position: putIn,
+			map,
+			title: "Put In",
+			icon: {
+				url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
+			  }
+		  });
+	}
 
+initMap1({ lat: 40.364615, lng: -77.811638 }, { lat: 40.392624, lng: -77.834099 }, 'map');
+initMap1({ lat: 40.472997, lng: -78.267312 }, { lat: 40.461728, lng: -78.198310 }, 'map2');
+initMap1({ lat: 41.068709, lng: -78.359954 }, { lat: 41.077854, lng: -78.235155 }, 'map3');
+initMap1({ lat: 41.338185, lng: -78.134852 }, { lat: 41.318352, lng: -78.083204 }, 'map4');
+initMap1({ lat: 40.587094, lng: -78.100481 }, { lat: 40.565726, lng: -78.070153 }, 'map5');
+initMap1({ lat: 40.915928, lng: -77.784904 }, { lat: 40.941443, lng: -77.787273 }, 'map6');
 
 
 
