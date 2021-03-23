@@ -390,6 +390,9 @@ let icon5 = document.querySelector('.icon5');
 let temperature6 = document.querySelector('.temperature-degree6');
 let describe6 = document.querySelector('.temperature-description6');
 let icon6 = document.querySelector('.icon6');
+let temperature7 = document.querySelector('.temperature-degree7');
+let describe7 = document.querySelector('.temperature-description7');
+let icon7 = document.querySelector('.icon7');
 
 const api1 = 'https://api.openweathermap.org/data/2.5/weather?lat=40.3937&lon=-77.9411&cnt=10&appid=9fe3916f8f1041f29ee752c05a931976&units=imperial';
 const api2 = 'https://api.openweathermap.org/data/2.5/weather?lat=40.2747&lon=-78.1211&cnt=10&appid=9fe3916f8f1041f29ee752c05a931976&units=imperial';
@@ -397,6 +400,7 @@ const api3 = 'https://api.openweathermap.org/data/2.5/weather?lat=40.3645&lon=-7
 const api4 = 'https://api.openweathermap.org/data/2.5/weather?lat=41.2448&lon=-78.1150&cnt=10&appid=9fe3916f8f1041f29ee752c05a931976&units=imperial';
 const api5 = 'https://api.openweathermap.org/data/2.5/weather?lat=41.0703&lon=-78.0633&cnt=10&appid=9fe3916f8f1041f29ee752c05a931976&units=imperial';
 const api6 = 'https://api.openweathermap.org/data/2.5/weather?lat=40.5544&lon=-77.4709&cnt=10&appid=9fe3916f8f1041f29ee752c05a931976&units=imperial';
+const api7 = 'https://api.openweathermap.org/data/2.5/weather?lat=40.0028&lon=-78.2134&cnt=10&appid=9fe3916f8f1041f29ee752c05a931976&units=imperial';
 
 function fetch1() { 	
 	fetch(api1)
