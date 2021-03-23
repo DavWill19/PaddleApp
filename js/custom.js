@@ -626,7 +626,7 @@ function fetchWater4() {
 		document.querySelector('.water-level-4').textContent = `Current Water Level: ${data.value.timeSeries[1].values[0].value[0].value} Feet`;
 		document.querySelector('.water-discharge-4').textContent = `Current Water Level: ${data.value.timeSeries[0].values[0].value[0].value} Cubic Feet Per Second`;
 
-		if (data.value.timeSeries[1].values[0].value[0].value >= 0 ) {
+		if (data.value.timeSeries[1].values[0].value[0].value >= 1.5) {
 			document.querySelector('.height-ok-4').textContent = "Water Levels Are Great!";
 			document.querySelector('.height-ok-4').style.color = "green";
 			document.querySelector('.height-ok-4').classList = ("animate__animated animate__pulse animate__infinite");
@@ -702,146 +702,37 @@ function fetchWater6() {
 };
 fetchWater6();
 
-//Google Maps//
-/*
-function initMap() {
-	const takeOut = { lat: 40.3926249, lng: -77.8340099 };
-	const putIn = { lat: 40.364615, lng: -77.811638 };
-	const map11 = new google.maps.Map(document.getElementById("map"), {
-	  zoom: 10,
-	  center: putIn,
-	});
-	new google.maps.Marker({
-	  position: takeOut,
-	  map11,
-	  title: "Take Out",
-	  icon: {
-		url: "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
-	  }
-	});
-	new google.maps.Marker({
-		position: putIn,
-		map11,
-		title: "Put In",
-		icon: {
-			url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
-		  }
-	  });
-	  //map2
-	  
-	  const takeOut2 = { lat: 40.3926249, lng: -77.834099 };
-	  const putIn2 = { lat: 40.364615, lng: -77.811638 };
-	  const map2 = new google.maps.Map(document.getElementById("map2"), {
-		zoom: 10,
-		center: putIn2,
-	  });
-	  new google.maps.Marker({
-		position: takeOut2,
-		map2,
-		title: "Take Out",
-		icon: {
-		  url: "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
+const apiRiver7 = 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01547100&parameterCd=00060,00065&siteType=ST&siteStatus=active';
+
+
+function fetchWater7() {
+	fetch(apiRiver6)
+	.then(response => {
+		return response.json();
+	})
+	.then(data => {
+		console.log(data);
+		document.querySelector('.water-level-7').textContent = `Current Water Level: ${data.value.timeSeries[1].values[0].value[0].value} Feet`;
+		document.querySelector('.water-discharge-7').textContent = `Current Water Level: ${data.value.timeSeries[0].values[0].value[0].value} Cubic Feet Per Second`;
+
+		if (data.value.timeSeries[1].values[0].value[0].value >= 1.5) {
+			document.querySelector('.height-ok-7').textContent = "Water Levels Are Great!";
+			document.querySelector('.height-ok-7').style.color = "green";
+			document.querySelector('.height-ok-7').classList = ("animate__animated animate__pulse animate__infinite");
 		}
-	  });
-	  new google.maps.Marker({
-		  position: putIn2,
-		  map2,
-		  title: "Put In",
-		  icon: {
-			  url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
-			}
-		});
-		const takeOut3 = { lat: 40.3926249, lng: -77.834099 };
-		const putIn3 = { lat: 40.364615, lng: -77.811638 };
-		const map3 = new google.maps.Map(document.getElementById("map3"), {
-		  zoom: 10,
-		  center: putIn3,
-		});
-		new google.maps.Marker({
-		  position: takeOut3,
-		  map3,
-		  title: "Take Out",
-		  icon: {
-			url: "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
+		else {
+			document.querySelector('.height-ok-7').textContent = "Water Levels Are Too Low!";
+			document.querySelector('.height-ok-7').style.color = "red";
+			document.querySelector('.height-ok-7').classList = ("animate__animated animate__pulse animate__infinite");
 		  }
-		});
-		new google.maps.Marker({
-			position: putIn3,
-			map3,
-			title: "Put In",
-			icon: {
-				url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
-			  }
-		  });
-		  const takeout4 = { lat: 40.3926249, lng: -77.834099 };
-		  const putIn4 = { lat: 40.364615, lng: -77.811638 };
-		  const map4 = new google.maps.Map(document.getElementById("map4"), {
-			zoom: 10,
-			center: putIn4,
-		  });
-		  new google.maps.Marker({
-			position: takeout4,
-			map4,
-			title: "Take Out",
-			icon: {
-			  url: "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
-			}
-		  });
-		  new google.maps.Marker({
-			  position: putIn4,
-			  map4,
-			  title: "Put In",
-			  icon: {
-				  url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
-				}
-			});
-			const takeOut5 = { lat: 40.3926249, lng: -77.834099 };
-			const putIn5 = { lat: 40.364615, lng: -77.811638 };
-			const map5 = new google.maps.Map(document.getElementById("map5"), {
-			  zoom: 10,
-			  center: putIn5,
-			});
-			new google.maps.Marker({
-			  position: takeOut5,
-			  map5,
-			  title: "Take Out",
-			  icon: {
-				url: "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
-			  }
-			});
-			new google.maps.Marker({
-				position: putIn5,
-				map5,
-				title: "Put In",
-				icon: {
-					url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
-				  }
-			  });
-			  const takeOut6 = { lat: 40.3926249, lng: -77.834099 };
-			  const putIn6 = { lat: 40.364615, lng: -77.811638 };
-			  const map6 = new google.maps.Map(document.getElementById("map6"), {
-				zoom: 10,
-				center: putIn6,
-			  });
-			  new google.maps.Marker({
-				position: takeOut6,
-				map6,
-				title: "Take Out",
-				icon: {
-				  url: "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
-				}
-			  });
-			  new google.maps.Marker({
-				  position: putIn6,
-				  map6,
-				  title: "Put In",
-				  icon: {
-					  url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
-					}
-				});
-				
-}
-*/
+	})
+	.catch(err => {
+		console.error(err);
+	});
+};
+fetchWater7();
+
+//Google Maps//
 
 	function initMap1(putIn, takeOut, id) {
 		const map = new google.maps.Map(document.getElementById(id), {
@@ -872,6 +763,7 @@ initMap1({ lat: 41.068709, lng: -78.359954 }, { lat: 41.077854, lng: -78.235155 
 initMap1({ lat: 41.338185, lng: -78.134852 }, { lat: 41.318352, lng: -78.083204 }, 'map4');
 initMap1({ lat: 40.587094, lng: -78.100481 }, { lat: 40.565726, lng: -78.070153 }, 'map5');
 initMap1({ lat: 40.915928, lng: -77.784904 }, { lat: 40.941443, lng: -77.787273 }, 'map6');
+initMap1({ lat: 40.014472, lng: -78.431776 }, { lat: 40.007770, lng: -78.359664 }, 'map7');
 
 
 
