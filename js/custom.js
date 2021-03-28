@@ -377,7 +377,7 @@ let describe = document.querySelector('.temperature-description');
 let icon = document.querySelector('.icon');
 let temperature2 = document.querySelector('.temperature-degree2');
 let describe2 = document.querySelector('.temperature-description2');
-let icon2 = document.querySelector('.icon2');
+let icon2 = document.querySelector('.icon2'); 
 let temperature3 = document.querySelector('.temperature-degree3');
 let describe3 = document.querySelector('.temperature-description3');
 let icon3 = document.querySelector('.icon3');
@@ -400,21 +400,21 @@ const api3 = 'https://api.openweathermap.org/data/2.5/weather?lat=40.3645&lon=-7
 const api4 = 'https://api.openweathermap.org/data/2.5/weather?lat=41.2448&lon=-78.1150&cnt=10&appid=9fe3916f8f1041f29ee752c05a931976&units=imperial';
 const api5 = 'https://api.openweathermap.org/data/2.5/weather?lat=41.0703&lon=-78.0633&cnt=10&appid=9fe3916f8f1041f29ee752c05a931976&units=imperial';
 const api6 = 'https://api.openweathermap.org/data/2.5/weather?lat=40.5544&lon=-77.4709&cnt=10&appid=9fe3916f8f1041f29ee752c05a931976&units=imperial';
-const api7 = 'https://api.openweathermap.org/data/2.5/weather?lat=40.0028&lon=-78.2134&cnt=10&appid=9fe3916f8f1041f29ee752c05a931976&units=imperial';
+const api7 = 'https://api.openweathermap.org/data/2.5/weather?lat=40.0144&lon=-78.4317&cnt=10&appid=9fe3916f8f1041f29ee752c05a931976&units=imperial';
 
-function fetch1() { 	
-	fetch(api1)
+function fetch1(api, temp, description, pic) { 	
+	fetch(api)
 		.then(response => {
 			return response.json();
 		})
 		.then(data => {
 			console.log(data);
-			temperature.textContent = Math.round(data.main.temp) + 'F';
-			describe.textContent = data.weather[0].description;
+			temp.textContent = Math.round(data.main.temp) + 'F';
+			description.textContent = data.weather[0].description;
 			var img = document.createElement("img");
 			img.classList.add("iconImage");0
 			img.src = `animated/${data.weather[0].icon}.svg`;
-			var src = document.querySelector('.icon');
+			var src = document.querySelector(pic);
 			src.appendChild(img);
 		})
 		.catch(err => {
@@ -422,352 +422,102 @@ function fetch1() {
 		});
 	};
 
-function fetch2() {
-		fetch(api2)
-		.then(response => {
-			return response.json();
-		})
-		.then(data => {
-			console.log(data);
-			temperature2.textContent = Math.round(data.main.temp) + 'F';
-			describe2.textContent = data.weather[0].description;
-			var img = document.createElement("img");
-			img.classList.add("iconImage");0
-			img.src = `animated/${data.weather[0].icon}.svg`;
-			var src = document.querySelector('.icon2');
-			src.appendChild(img);
-		})
-		.catch(err => {
-			console.error(err);
-		});
-	};
-
-function fetch3() {
-		fetch(api3)
-		.then(response => {
-			return response.json();
-		})
-		.then(data => {
-			console.log(data);
-			temperature3.textContent = Math.round(data.main.temp) + 'F';
-			describe3.textContent = data.weather[0].description;
-			var img = document.createElement("img");
-			img.classList.add("iconImage");0
-			img.src = `animated/${data.weather[0].icon}.svg`;
-			var src = document.querySelector('.icon3');
-			src.appendChild(img);
-		})
-		.catch(err => {
-			console.error(err);
-		});
-};
-
-function fetch4() {
-		fetch(api4)
-		.then(response => {
-			return response.json();
-		})
-		.then(data => {
-			console.log(data);
-			temperature4.textContent = Math.round(data.main.temp) + 'F';
-			describe4.textContent = data.weather[0].description;
-			var img = document.createElement("img");
-			img.classList.add("iconImage");0
-			img.src = `animated/${data.weather[0].icon}.svg`;
-			var src = document.querySelector('.icon4');
-			src.appendChild(img);
-		})
-		.catch(err => {
-			console.error(err);
-		});
-	};
-
-function fetch5() {
-		fetch(api5)
-		.then(response => {
-			return response.json();
-		})
-		.then(data => {
-			console.log(data);
-			temperature5.textContent = Math.round(data.main.temp) + 'F';
-			describe5.textContent = data.weather[0].description;
-			var img = document.createElement("img");
-			img.classList.add("iconImage");0
-			img.src = `animated/${data.weather[0].icon}.svg`;
-			var src = document.querySelector('.icon5');
-			src.appendChild(img);
-		})
-		.catch(err => {
-			console.error(err);
-		});
-	};
-
-function fetch6() {
-		fetch(api6)
-		.then(response => {
-			return response.json();
-		})
-		.then(data => {
-			console.log(data);
-			temperature6.textContent = Math.round(data.main.temp) + 'F';
-			describe6.textContent = data.weather[0].description;
-			var img = document.createElement("img");
-			img.classList.add("iconImage");0
-			img.src = `animated/${data.weather[0].icon}.svg`;
-			var src = document.querySelector('.icon6');
-			src.appendChild(img);
-		})
-		.catch(err => {
-			console.error(err);
-		});
-};
-fetch1();
-fetch2();
-fetch3();
-fetch4();
-fetch5();
-fetch6();
-
+fetch1(api1, temperature, describe, ".icon");
+fetch1(api2, temperature2, describe2, ".icon2");
+fetch1(api3, temperature3, describe3, ".icon3");
+fetch1(api4, temperature4, describe4, ".icon4");
+fetch1(api5, temperature5, describe5, ".icon5");
+fetch1(api6, temperature6, describe6, ".icon6");
+fetch1(api7, temperature7, describe7, ".icon7");
 
 ///Water Data //
 const apiRiver = 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01563500&parameterCd=00060,00065&siteType=ST&siteStatus=active';
-
-function fetchWater() {
-	
-	fetch(apiRiver)
-	.then(response => {
-		return response.json();
-	})
-	.then(data => {
-		console.log(data);
-		document.querySelector('.water-level-1').textContent = `Current Water Level: ${data.value.timeSeries[1].values[0].value[0].value} Feet`;
-		document.querySelector('.water-discharge-1').textContent = `Current Water Level: ${data.value.timeSeries[0].values[0].value[0].value} Cubic Feet Per Second`;
-
-		if (data.value.timeSeries[1].values[0].value[0].value >= 1.5) {
-			document.querySelector('.height-ok-1').textContent = "Water Levels Are Great!";
-			document.querySelector('.height-ok-1').style.color = "green";
-			document.querySelector('.height-ok-1').classList = ("animate__animated animate__pulse animate__infinite");
-		}
-		else {
-			document.querySelector('.height-ok-1').textContent = "Water Levels Are Too Low!";
-			document.querySelector('.height-ok-1').style.color = "red";
-			document.querySelector('.height-ok-1').classList = ("animate__animated animate__pulse animate__infinite");
-		  }
-	})
-	.catch(err => {
-		console.error(err);
-	});
-};
-fetchWater();
-
 const apiRiver2 = 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01556000&parameterCd=00060,00065&siteType=ST&siteStatus=active';
-
-function fetchWater2() {
-	fetch(apiRiver2)
-	.then(response => {
-		return response.json();
-	})
-	.then(data => {
-		console.log(data);
-		document.querySelector('.water-level-2').textContent = `Current Water Level: ${data.value.timeSeries[1].values[0].value[0].value} Feet`;
-		document.querySelector('.water-discharge-2').textContent = `Current Water Level: ${data.value.timeSeries[0].values[0].value[0].value} Cubic Feet Per Second`;
-
-		if (data.value.timeSeries[1].values[0].value[0].value >= 1.5) {
-			document.querySelector('.height-ok-2').textContent = "Water Levels Are Great!"
-			document.querySelector('.height-ok-2').style.color = "green";
-			document.querySelector('.height-ok-2').classList = ("animate__animated animate__pulse animate__infinite");
-		}
-		else {
-			document.querySelector('.height-ok-2').textContent = "Water Levels Are Too Low!"
-			document.querySelector('.height-ok-2').style.color = "red";
-			document.querySelector('.height-ok-2').classList = ("animate__animated animate__pulse animate__infinite");
-		  }
-	})
-	.catch(err => {
-		console.error(err);
-	});
-};
-fetchWater2();
-
 const apiRiver3 = 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01542500&parameterCd=00060,00065&siteType=ST&siteStatus=active';
-
-function fetchWater3() {
-	fetch(apiRiver3)
-	.then(response => {
-		return response.json();
-	})
-	.then(data => {
-		console.log(data);
-		document.querySelector('.water-level-3').textContent = `Current Water Level: ${data.value.timeSeries[1].values[0].value[0].value} Feet`;
-		document.querySelector('.water-discharge-3').textContent = `Current Water Level: ${data.value.timeSeries[0].values[0].value[0].value} Cubic Feet Per Second`;
-
-		if (data.value.timeSeries[1].values[0].value[0].value >= 1.5) {
-			document.querySelector('.height-ok-3').textContent = "Water Levels Are Great!";
-			document.querySelector('.height-ok-3').style.color = "green";
-			document.querySelector('.height-ok-3').classList = ("animate__animated animate__pulse animate__infinite");
-		}
-		else {
-			document.querySelector('.height-ok-3').textContent = "Water Levels Are Too Low!";
-			document.querySelector('.height-ok-3').style.color = "red";
-			document.querySelector('.height-ok-3').classList = ("animate__animated animate__pulse animate__infinite");
-		  }
-	})
-	.catch(err => {
-		console.error(err);
-	});
-};
-fetchWater3();
-
 const apiRiver4 = 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01543000&parameterCd=00060,00065&siteType=ST&siteStatus=active';
-
-function fetchWater4() {
-	fetch(apiRiver4)
-	.then(response => {
-		return response.json();
-	})
-	.then(data => {
-		console.log(data);
-		document.querySelector('.water-level-4').textContent = `Current Water Level: ${data.value.timeSeries[1].values[0].value[0].value} Feet`;
-		document.querySelector('.water-discharge-4').textContent = `Current Water Level: ${data.value.timeSeries[0].values[0].value[0].value} Cubic Feet Per Second`;
-
-		if (data.value.timeSeries[1].values[0].value[0].value >= 1.5) {
-			document.querySelector('.height-ok-4').textContent = "Water Levels Are Great!";
-			document.querySelector('.height-ok-4').style.color = "green";
-			document.querySelector('.height-ok-4').classList = ("animate__animated animate__pulse animate__infinite");
-		}
-		else {
-			document.querySelector('.height-ok-4').textContent = "Water Levels Are Too Low!";
-			document.querySelector('.height-ok-4').style.color = "red";
-			document.querySelector('.height-ok-4').classList = ("animate__animated animate__pulse animate__infinite");
-		  }
-	})
-	.catch(err => {
-		console.error(err);
-	});
-};
-fetchWater4();
-
 const apiRiver5 = 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01558000&parameterCd=00060,00065&siteType=ST&siteStatus=active';
-
-function fetchWater5() {
-	fetch(apiRiver5)
-	.then(response => {
-		return response.json();
-	})
-	.then(data => {
-		console.log(data);
-		document.querySelector('.water-level-5').textContent = `Current Water Level: ${data.value.timeSeries[1].values[0].value[0].value} Feet`;
-		document.querySelector('.water-discharge-5').textContent = `Current Water Level: ${data.value.timeSeries[0].values[0].value[0].value} Cubic Feet Per Second`;
-
-		if (data.value.timeSeries[1].values[0].value[0].value >= 1.5) {
-			document.querySelector('.height-ok-5').textContent = "Water Levels Are Great!";
-			document.querySelector('.height-ok-5').style.color = "green";
-			document.querySelector('.height-ok-5').classList = ("animate__animated animate__pulse animate__infinite");
-		}
-		else {
-			document.querySelector('.height-ok-5').textContent = "Water Levels Are Too Low!"
-			document.querySelector('.height-ok-5').style.color = "red";
-			document.querySelector('.height-ok-5').classList = ("animate__animated animate__pulse animate__infinite");
-		  }
-	})
-	.catch(err => {
-		console.error(err);
-	});
-};
-fetchWater5();
-
 const apiRiver6 = 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01547100&parameterCd=00060,00065&siteType=ST&siteStatus=active';
+const apiRiver7 = 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01562000&parameterCd=00060,00065&siteType=ST&siteStatus=active';
 
-
-function fetchWater6() {
-	fetch(apiRiver6)
+function fetchWater(min, api, level, discharge, outcome) {
+	
+	fetch(api)
 	.then(response => {
 		return response.json();
 	})
 	.then(data => {
 		console.log(data);
-		document.querySelector('.water-level-6').textContent = `Current Water Level: ${data.value.timeSeries[1].values[0].value[0].value} Feet`;
-		document.querySelector('.water-discharge-6').textContent = `Current Water Level: ${data.value.timeSeries[0].values[0].value[0].value} Cubic Feet Per Second`;
+		document.querySelector(level).textContent = `Current Water Level: ${data.value.timeSeries[1].values[0].value[0].value} Feet`;
+		document.querySelector(discharge).textContent = `Current Water Level: ${data.value.timeSeries[0].values[0].value[0].value} Cubic Feet Per Second`;
 
-		if (data.value.timeSeries[1].values[0].value[0].value >= 1.5) {
-			document.querySelector('.height-ok-6').textContent = "Water Levels Are Great!";
-			document.querySelector('.height-ok-6').style.color = "green";
-			document.querySelector('.height-ok-6').classList = ("animate__animated animate__pulse animate__infinite");
+		if (data.value.timeSeries[1].values[0].value[0].value >= min) {
+			document.querySelector(outcome).textContent = "Water Levels Are Great!";
+			document.querySelector(outcome).style.color = "green";
+			document.querySelector(outcome).classList = ("animate__animated animate__pulse animate__infinite");
 		}
 		else {
-			document.querySelector('.height-ok-6').textContent = "Water Levels Are Too Low!";
-			document.querySelector('.height-ok-6').style.color = "red";
-			document.querySelector('.height-ok-6').classList = ("animate__animated animate__pulse animate__infinite");
+			document.querySelector(outcome).textContent = "Water Levels Are Too Low!";
+			document.querySelector(outcome).style.color = "red";
+			document.querySelector(outcome).classList = ("animate__animated animate__pulse animate__infinite");
 		  }
 	})
 	.catch(err => {
 		console.error(err);
 	});
 };
-fetchWater6();
+fetchWater(1.5, apiRiver, ".water-level-1", '.water-discharge-1', '.height-ok-1');
+fetchWater(1.5, apiRiver2, ".water-level-2", '.water-discharge-2', '.height-ok-2');
+fetchWater(1.5, apiRiver3, ".water-level-3", '.water-discharge-3', '.height-ok-3');
+fetchWater(0, apiRiver4, ".water-level-4", '.water-discharge-4', '.height-ok-4');
+fetchWater(1.5, apiRiver5, ".water-level-5", '.water-discharge-5', '.height-ok-5');
+fetchWater(1.5, apiRiver6, ".water-level-6", '.water-discharge-6', '.height-ok-6');
+fetchWater(1.5, apiRiver7, ".water-level-7", '.water-discharge-7', '.height-ok-7');
 
-const apiRiver7 = 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01547100&parameterCd=00060,00065&siteType=ST&siteStatus=active';
 
-
-function fetchWater7() {
-	fetch(apiRiver6)
-	.then(response => {
-		return response.json();
-	})
-	.then(data => {
-		console.log(data);
-		document.querySelector('.water-level-7').textContent = `Current Water Level: ${data.value.timeSeries[1].values[0].value[0].value} Feet`;
-		document.querySelector('.water-discharge-7').textContent = `Current Water Level: ${data.value.timeSeries[0].values[0].value[0].value} Cubic Feet Per Second`;
-
-		if (data.value.timeSeries[1].values[0].value[0].value >= 1.5) {
-			document.querySelector('.height-ok-7').textContent = "Water Levels Are Great!";
-			document.querySelector('.height-ok-7').style.color = "green";
-			document.querySelector('.height-ok-7').classList = ("animate__animated animate__pulse animate__infinite");
-		}
-		else {
-			document.querySelector('.height-ok-7').textContent = "Water Levels Are Too Low!";
-			document.querySelector('.height-ok-7').style.color = "red";
-			document.querySelector('.height-ok-7').classList = ("animate__animated animate__pulse animate__infinite");
-		  }
-	})
-	.catch(err => {
-		console.error(err);
-	});
-};
-fetchWater7();
 
 //Google Maps//
 
-	function initMap1(putIn, takeOut, id) {
+	function initMap1(putIn, takeOut, id, inn, out) {
+		console.log(takeOut);
 		const map = new google.maps.Map(document.getElementById(id), {
 		  zoom: 10,
 		  center: putIn,
 		});
-		new google.maps.Marker({
+		const marker = new google.maps.Marker({
 		  position: takeOut,
 		  map,
 		  title: "Take Out",
 		  icon: {
 			url: "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
 		  }
+		}); 
+			google.maps.event.addListener(marker, 'click', function() {
+			window.open(`https://www.google.com/maps?q=${out}`, '_blank');
 		});
-		new google.maps.Marker({
+		marker;
+		const marker2 = new google.maps.Marker({
 			position: putIn,
 			map,
 			title: "Put In",
 			icon: {
 				url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
 			  }
-		  });
+		  }); 
+		  	google.maps.event.addListener(marker2, 'click', function() {
+			window.open(`https://www.google.com/maps?q=${inn}`, '_blank');
+		});
+		  marker2;
 	}
 
-initMap1({ lat: 40.364615, lng: -77.811638 }, { lat: 40.392624, lng: -77.834099 }, 'map');
-initMap1({ lat: 40.472997, lng: -78.267312 }, { lat: 40.461728, lng: -78.198310 }, 'map2');
-initMap1({ lat: 41.068709, lng: -78.359954 }, { lat: 41.077854, lng: -78.235155 }, 'map3');
-initMap1({ lat: 41.338185, lng: -78.134852 }, { lat: 41.318352, lng: -78.083204 }, 'map4');
-initMap1({ lat: 40.587094, lng: -78.100481 }, { lat: 40.565726, lng: -78.070153 }, 'map5');
-initMap1({ lat: 40.915928, lng: -77.784904 }, { lat: 40.941443, lng: -77.787273 }, 'map6');
-initMap1({ lat: 40.014472, lng: -78.431776 }, { lat: 40.007770, lng: -78.359664 }, 'map7');
+	initMap1({ lat: 40.364615, lng: -77.811638 }, { lat: 40.392624, lng: -77.834099 }, 'map', '40.364615 -77.811638', '40.392624 -77.834099');
+	initMap1({ lat: 40.472997, lng: -78.267312 }, { lat: 40.461728, lng: -78.198310 }, 'map2', '40.472997 -78.267312', '40.461728 -78.198310');
+	initMap1({ lat: 41.068709, lng: -78.359954 }, { lat: 41.077854, lng: -78.235155 }, 'map3', '41.068709 -78.359954', '41.077854 -78.235155');
+	initMap1({ lat: 41.338185, lng: -78.134852 }, { lat: 41.318352, lng: -78.083204 }, 'map4', '41.338185 -78.134852', '41.318352 -78.083204');
+	initMap1({ lat: 40.587094, lng: -78.100481 }, { lat: 40.565726, lng: -78.070153 }, 'map5', '40.587094 -78.100481', '40.565726 -78.070153');
+	initMap1({ lat: 40.915928, lng: -77.784904 }, { lat: 40.941443, lng: -77.787273 }, 'map6', '40.915928 -77.784904', '40.941443 -77.787273');
+	initMap1({ lat: 40.014472, lng: -78.431776 }, { lat: 40.007770, lng: -78.359664 }, 'map7', '40.014472 -78.431776', '40.007770 -78.359664');
+
+
 
 
 
