@@ -466,12 +466,12 @@ function fetchWater(min, api, level, discharge, outcome) {
 	});
 };
 fetchWater(1.5, apiRiver, ".water-level-1", '.water-discharge-1', '.height-ok-1');
-fetchWater(1.5, apiRiver2, ".water-level-2", '.water-discharge-2', '.height-ok-2');
-fetchWater(1.5, apiRiver3, ".water-level-3", '.water-discharge-3', '.height-ok-3');
+fetchWater(1.6, apiRiver2, ".water-level-2", '.water-discharge-2', '.height-ok-2');
+fetchWater(2, apiRiver3, ".water-level-3", '.water-discharge-3', '.height-ok-3');
 fetchWater(0, apiRiver4, ".water-level-4", '.water-discharge-4', '.height-ok-4');
-fetchWater(1.5, apiRiver5, ".water-level-5", '.water-discharge-5', '.height-ok-5');
+fetchWater(1.6, apiRiver5, ".water-level-5", '.water-discharge-5', '.height-ok-5');
 fetchWater(1.5, apiRiver6, ".water-level-6", '.water-discharge-6', '.height-ok-6');
-fetchWater(1.5, apiRiver7, ".water-level-7", '.water-discharge-7', '.height-ok-7');
+fetchWater(1.7, apiRiver7, ".water-level-7", '.water-discharge-7', '.height-ok-7');
 
 
 
