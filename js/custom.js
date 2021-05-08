@@ -456,7 +456,7 @@ function fetchWater(min, api, level, discharge, outcome) {
 			document.querySelector(outcome).classList = ("animate__animated animate__pulse animate__infinite");
 		}
 		else {
-			document.querySelector(outcome).textContent = "Water Levels Are Too Low!";
+			document.querySelector(outcome).textContent = "Water Levels Are Low!";
 			document.querySelector(outcome).style.color = "red";
 			document.querySelector(outcome).classList = ("animate__animated animate__pulse animate__infinite");
 		  }
