@@ -1675,12 +1675,16 @@ input[type="radio"] .styled:checked+label::after {
 
 .banner-main {
 	position: relative;
+	}
+
+.first-slide {
+	filter: brightness(80%)
 }
 
 .banner-main .carousel-caption h1 {
 	color: #fff;
-	font-size: 70px;
-	line-height: 70px;
+	font-size: 100px;
+	line-height: 90px;
 	font-weight: bold;
 }
 
@@ -1730,7 +1734,7 @@ input[type="radio"] .styled:checked+label::after {
 /** about section **/
 
 .about {
-	padding-top: 90px;
+	padding-top: 40px;
 	padding-bottom: 90px;
 	background: #fff;
 }
@@ -1767,7 +1771,7 @@ input[type="radio"] .styled:checked+label::after {
 	color: #050303;
 	line-height: 46px;
 	border-bottom: #0fbac6 solid 1px;
-	width: 410px;
+	width: 610px;
 	margin: 0 auto;
 	margin-bottom: 0px;
 	margin-bottom: 20px;
@@ -1869,7 +1873,7 @@ input[type="radio"] .styled:checked+label::after {
 }
 
 .riverImg {
-	height: 500px;
+	width: 600px;
 }
 
 .service .titlepage h2 {
@@ -2444,3 +2448,12 @@ ul.contant_icon li img {
 		margin: 0;
 		padding: 0;
 	  }
+
+.descript {
+	width: 300px;
+	color: #0fc690;
+	font-size: 14px;
+	font-style: italic;
+	font-weight: 300;
+}
+
