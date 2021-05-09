@@ -517,7 +517,8 @@ fetchWater(1.7, apiRiver7, ".water-level-7", '.water-discharge-7', '.height-ok-7
 	setTimeout(function(){ initMap1({ lat: 40.915928, lng: -77.784904 }, { lat: 40.941443, lng: -77.787273 }, 'map6', '40.915928 -77.784904', '40.941443 -77.787273'); }, 100);
 	setTimeout(function(){ initMap1({ lat: 40.014472, lng: -78.431776 }, { lat: 40.007770, lng: -78.359664 }, 'map7', '40.014472 -78.431776', '40.007770 -78.359664'); }, 100);
 
-
+//scroll reveal//
+AOS.init({duration: 800, easing: 'ease'});
 
 
 

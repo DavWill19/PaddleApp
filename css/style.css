@@ -47,6 +47,7 @@ body {
 	line-height: 1.80857;
 	font-weight: normal;
 	overflow-x: hidden;
+	background: linear-gradient(#a9fdcc, #c5cafa) no-repeat;
 }
 
 a {
@@ -1389,6 +1390,12 @@ nav.main-menu {
 	height: 100%;
 }
 
+.container {
+	background: linear-gradient(0.25turn,#defae9, #e6e8fa);
+	border-radius: 10px;
+	padding-top: 10px;
+}
+
 .heroslider .slider-01 {
 	width: 100%;
 	background-image: url(../images/slider-01.jpg);
@@ -1678,7 +1685,13 @@ input[type="radio"] .styled:checked+label::after {
 	}
 
 .first-slide {
-	filter: brightness(80%)
+	filter: brightness(80%);
+	height: 800px;
+	width: 1300px;
+	border-bottom-left-radius: 1%;
+	border-bottom-right-radius: 1%;
+
+	
 }
 
 .banner-main .carousel-caption h1 {
@@ -1735,7 +1748,7 @@ input[type="radio"] .styled:checked+label::after {
 
 .about {
 	padding-top: 40px;
-	padding-bottom: 90px;
+	padding-bottom: 30px;
 	background: #fff;
 }
 
@@ -1825,7 +1838,7 @@ input[type="radio"] .styled:checked+label::after {
 }
 
 .service {
-	padding-top: 90px;
+	padding-top: 30px;
 	padding-bottom: 60px;
 	background: #f4f4f4;
 }
@@ -1874,6 +1887,8 @@ input[type="radio"] .styled:checked+label::after {
 
 .riverImg {
 	width: 600px;
+	border-radius: 1%;
+	box-shadow: 7px 4px 4px rgb(96, 107, 101);
 }
 
 .service .titlepage h2 {
@@ -2208,22 +2223,10 @@ input[type="radio"] .styled:checked+label::after {
 	padding-top: 55px;
 }
 
-.footer .address h3 {
-	color: #fff;
-	font-size: 25px;
-	line-height: 35px;
-	font-weight: 500;
-	padding-bottom: 20px;
+footer p {
+	text-align: center;
+	padding-top: 8px;
 }
-
-.footer .address i {
-	color: #fff;
-	font-size: 15px;
-	font-weight: 500;
-}
-
-.footer .address i img {
-	padding-right: 10px;
 }
 
 .form-control {
