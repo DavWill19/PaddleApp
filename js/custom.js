@@ -448,7 +448,7 @@ function fetchWater(min, api, level, discharge, outcome) {
 	.then(data => {
 		console.log(data);
 		document.querySelector(level).textContent = `Current Water Level: ${data.value.timeSeries[1].values[0].value[0].value} Feet`;
-		document.querySelector(discharge).textContent = `Current Water Level: ${data.value.timeSeries[0].values[0].value[0].value} Cubic Feet Per Second`;
+		document.querySelector(discharge).textContent = `Current Discharge Rate: ${data.value.timeSeries[0].values[0].value[0].value} Cubic Feet Per Second`;
 
 		if (data.value.timeSeries[1].values[0].value[0].value >= min) {
 			document.querySelector(outcome).textContent = "Water Levels Are Great!";
